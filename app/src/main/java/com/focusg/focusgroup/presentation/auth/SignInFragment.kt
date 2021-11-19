@@ -103,7 +103,7 @@ class SignInFragment : Fragment() {
 
             val usernameEmailText = binding.usernameEmailSignin.text.toString()
             val passwordText = binding.passwordSignin.text.toString()
-
+            // No need to validate the sign in form.
             if(isValidEmail== true){
                 authViewModel.signInWithEmailAndPassword(usernameEmailText, passwordText)
             } else if(isValidUsername == true){
