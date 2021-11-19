@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.auth.SignInFragment"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            >
+
+            <TextView
+                android:id="@+id/header_signin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:contentDescription="Sign In"
+                android:gravity="center"
+                android:text="Sign In"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+
+
+            <EditText
+                android:id="@+id/username_email_signin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_below="@id/header_signin"
+                android:hint="@string/email_or_username"
+                android:inputType="text"
+                android:minHeight="48dp" />
+
+
+            <EditText
+                android:id="@+id/password_signin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/username_email_signin"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:minHeight="48dp" />
+            <Button
+                android:id="@+id/sign"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/password_signin"
+                android:text="Sign In"
+                />
+            <TextView
+                android:textColor="@color/purple_500"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/signin_or_signup"
+                android:layout_below="@id/sign"
+                android:layout_marginTop="20dp"
+                android:text="@string/don_t_have_an_account_sign_up"
+                android:layout_alignStart="@id/sign"
+                android:layout_alignEnd="@id/sign"
+                android:gravity="center_horizontal"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/signin_error"
+                android:layout_below="@id/signin_or_signup"
+                android:layout_marginTop="20dp"
+                android:visibility="invisible"
+                android:layout_alignStart="@id/sign"
+                android:layout_alignEnd="@id/sign"
+                android:gravity="center_horizontal"
+                />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</layout>

@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">FocusGroup</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+
+    <string name="confirm_password">Confirm Password</string>
+    <string name="firstname">Firstname</string>
+    <string name="required">required</string>
+    <string name="username">Username</string>
+    <string name="lastname">Lastname</string>
+    <string name="firstname_should_be_within_2_to_20_characters">Firstname should be within 2 to 20 characters</string>
+    <string name="lastname_should_be_within_2_to_20_characters">lastname should be_within 2 to 20 characters</string>
+    <string name="username_should_be_within_5_20_characters_and_should_not_consists_of_special_characters_at_both_ends">username should be within 5 to 20 characters and should not consists of special characters at both ends.</string>
+    <string name="enter_a_valid_email">Enter a valid email</string>
+    <string name="password_should_be_between_12_to_50_characters_and_contain_at_least_1_number_1_special_and_1_uppercase_character">Password should be between 12 to 50 characters and contain at least 1 number, 1 special and 1 uppercase character</string>
+    <string name="passwords_do_not_match">Passwords do not match</string>
+    <string name="username_already_exists">username already exists</string>
+    <string name="signing_up">Signing up ...</string>
+    <string name="loading">Loading...</string>
+    <string name="or_sign_in">Or Sign In</string>
+    <string name="already_have_an_account_sign_in">Already have an account? Sign in</string>
+    <string name="email_or_username">Email | Username</string>
+    <string name="email_already_exists">Email already exists</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account? Sign Up</string>
+    <string name="create">create</string>
+    <string name="logout">logout</string>
+</resources>
