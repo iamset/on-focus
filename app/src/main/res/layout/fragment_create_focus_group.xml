@@ -1,21 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <data>
+
+    </data>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+        android:layout_height="match_parent"
+        tools:context=".presentation.focus_groups.create.CreateFocusGroupFragment">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+
+            <TextView
+                android:id="@+id/create_focus_header"
+                android:layout_marginTop="70dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/create_focus_group"
+                android:contentDescription="@string/create_focus_group"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/create_focus_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/create_focus_header"
+                android:minHeight="48dp"
+                android:layout_marginTop="30dp"
+                android:inputType="textMultiLine"
+                android:hint="@string/name" />
+
+            <TextView
+                android:id="@+id/create_focus_name_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/required"
+                android:layout_below="@id/create_focus_name"
+                android:layout_marginTop="-10dp"
+                android:visibility="invisible"
+                />
+
+            <EditText
+                android:id="@+id/create_focus_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/create_focus_name"
+                android:minHeight="48dp"
+                android:inputType="textMultiLine"
+                android:layout_marginTop="30dp"
+                android:hint="@string/description" />
+
+            <TextView
+                android:id="@+id/create_focus_description_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/create_focus_description"
+                android:layout_marginTop="-10dp"
+                android:text="@string/required"
+                android:visibility="invisible"
+                />
+
+            <EditText
+                android:id="@+id/create_focus_part_limit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/create_focus_description"
+                android:minHeight="48dp"
+                android:inputType="number"
+                android:layout_marginTop="30dp"
+                android:hint="@string/limit_on_of_participants_if_empty_no_limits" />
+
+            <TextView
+                android:id="@+id/create_focus_part_limit_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/create_focus_part_limit"
+                android:layout_marginTop="-10dp"
+                android:visibility="invisible"
+
+                />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/ic_baseline_arrow_forward_24"
+                android:id="@+id/create_focus_button1"
+                android:layout_below="@id/create_focus_part_limit"
+                android:contentDescription="@string/next"
+
+                />
 
 
-        android:text="Create Focus Group" />
+        </RelativeLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

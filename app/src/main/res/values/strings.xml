@@ -27,4 +27,9 @@
     <string name="don_t_have_an_account_sign_up">Don\'t have an account? Sign Up</string>
     <string name="create">create</string>
     <string name="logout">logout</string>
+    <string name="create_focus_group">Create Focus Group</string>
+    <string name="name">Name</string>
+    <string name="description">Description</string>
+    <string name="limit_on_of_participants_if_empty_no_limits">Limit on # of participants, if empty, no limits</string>
+    <string name="next">Next</string>
 </resources>

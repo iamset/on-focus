@@ -29,7 +29,8 @@ class SignUpFragmentTest {
 
     @Test
     fun signUpButton_whenClickedWithCorrectControlsValues_hideErrors(){
-
+        // to make this test, run in offline mode, because when the button is clicked, it
+        // authenticates the user, and navigates the user to a different page.
         onView(withId(R.id.username_signup)).perform(typeText("ncmaduji"), closeSoftKeyboard())
         onView(withId(R.id.email_signup)).perform(typeText("ncm@ncm.com"), closeSoftKeyboard())
         onView(withId(R.id.password_signup)).perform(typeText("nnamdimadujiN1*"), closeSoftKeyboard())

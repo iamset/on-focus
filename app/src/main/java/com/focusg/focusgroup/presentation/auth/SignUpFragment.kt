@@ -1,16 +1,10 @@
 package com.focusg.focusgroup.presentation.auth
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
@@ -18,13 +12,9 @@ import com.focusg.focusgroup.R
 import com.focusg.focusgroup.databinding.FragmentSignUpBinding
 import com.focusg.focusgroup.domain.util.AuthFormControl
 import com.focusg.focusgroup.presentation.users.UsersViewModel
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.navigation.fragment.findNavController
-import com.focusg.focusgroup.presentation.MainActivity
-import com.focusg.focusgroup.presentation.util.hideKeyboard
-import java.lang.Exception
+import com.focusg.focusgroup.presentation.util.*
 
 
 @AndroidEntryPoint
@@ -232,35 +222,9 @@ class SignUpFragment : Fragment() {
         }
     }
 
-    private fun decideIfToShowError(control: EditText, isValidControl: Boolean?, textView: TextView, error: String){
-        if(isValidControl == null){
-            showControlErrors(textView)
 
-        }
-        if(isValidControl == true){
-            hideControlErrors(textView)
-        }
-        if (isValidControl == false && control.text.toString().isBlank()) {
-            typeOfControlError(textView,getString(R.string.required))
-            showControlErrors(textView)
-        }
-        if (isValidControl == false && control.text.toString().isNotBlank()) {
-            typeOfControlError(textView,error)
-            showControlErrors(textView)
-        }
-    }
 
-    private fun showControlErrors(textView: TextView){
-        textView.visibility = View.VISIBLE
-    }
 
-    private fun hideControlErrors(textView: TextView){
-        textView.visibility = View.GONE
-    }
-
-    private fun typeOfControlError(textView: TextView, error: String){
-        textView.text = error
-    }
 
 
 }

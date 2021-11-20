@@ -1,6 +1,6 @@
 package com.focusg.focusgroup.auth
 
-import com.focusg.focusgroup.domain.util.AuthValidation
+import com.focusg.focusgroup.domain.validation.AuthValidation
 import com.google.common.truth.Truth.assertThat
 import org.junit.Before
 import org.junit.Test
