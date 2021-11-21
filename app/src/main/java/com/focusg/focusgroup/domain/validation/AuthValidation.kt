@@ -1,4 +1,4 @@
-package com.focusg.focusgroup.domain.util
+package com.focusg.focusgroup.domain.validation
 
 import javax.inject.Inject
 

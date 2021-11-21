@@ -48,6 +48,8 @@ class AuthViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
+            // this is only available here, so that I don't have to sign in
+            // each time i reinstall the app.
 //            _currentUser.value = getCurrentUserFromCacheUseCase()
         }
     }

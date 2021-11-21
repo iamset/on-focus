@@ -1,16 +1,10 @@
 package com.focusg.focusgroup.presentation.auth
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
@@ -18,13 +12,9 @@ import com.focusg.focusgroup.R
 import com.focusg.focusgroup.databinding.FragmentSignUpBinding
 import com.focusg.focusgroup.domain.util.AuthFormControl
 import com.focusg.focusgroup.presentation.users.UsersViewModel
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.navigation.fragment.findNavController
-import com.focusg.focusgroup.presentation.MainActivity
-import com.focusg.focusgroup.presentation.util.hideKeyboard
-import java.lang.Exception
+import com.focusg.focusgroup.presentation.util.*
 
 
 @AndroidEntryPoint
@@ -111,13 +101,16 @@ class SignUpFragment : Fragment() {
 
     }
 
-
-
-
-
     private fun controlsSetUp(editText: EditText, textView: TextView, type:String){
         editText.setOnFocusChangeListener { _, hasFocus ->
-            editTextHasFocus(hasFocus, textView, type)
+            editTextHasFocus(hasFocus, textView){
+                when(type){
+                    AuthFormControl.USERNAME.control -> decideIfToShowError(binding.usernameSignup, isValidUsername, binding.usernameSignupError, getString(R.string.username_should_be_within_5_20_characters_and_should_not_consists_of_special_characters_at_both_ends))
+                    AuthFormControl.EMAIL.control -> decideIfToShowError(binding.emailSignup, isValidEmail, binding.emailSignupError, getString(R.string.enter_a_valid_email))
+                    AuthFormControl.PASSWORD.control -> decideIfToShowError(binding.passwordSignup, isValidPassword, binding.passwordSignupError, getString(R.string.password_should_be_between_12_to_50_characters_and_contain_at_least_1_number_1_special_and_1_uppercase_character))
+                    AuthFormControl.CONFIRM_PASSWORD.control -> decideIfToShowError(binding.confirmPasswordSignup, isValidConfirmPassword, binding.confirmPasswordSignupError, getString(R.string.passwords_do_not_match))
+                }
+            }
         }
         when(type){
             AuthFormControl.USERNAME.control -> usernameSetUp(editText, textView, binding.usernameSignupError2)
@@ -185,26 +178,6 @@ class SignUpFragment : Fragment() {
         }
     }
 
-
-
-    private fun editTextHasFocus(hasFocus: Boolean, textView: TextView, type: String){
-        if (hasFocus){
-            hideControlErrors(textView)
-        } else {
-            when(type){
-                AuthFormControl.USERNAME.control -> decideIfToShowError(binding.usernameSignup, isValidUsername, binding.usernameSignupError, getString(R.string.username_should_be_within_5_20_characters_and_should_not_consists_of_special_characters_at_both_ends))
-                AuthFormControl.EMAIL.control -> decideIfToShowError(binding.emailSignup, isValidEmail, binding.emailSignupError, getString(R.string.enter_a_valid_email))
-                AuthFormControl.PASSWORD.control -> decideIfToShowError(binding.passwordSignup, isValidPassword, binding.passwordSignupError, getString(R.string.password_should_be_between_12_to_50_characters_and_contain_at_least_1_number_1_special_and_1_uppercase_character))
-                AuthFormControl.CONFIRM_PASSWORD.control -> decideIfToShowError(binding.confirmPasswordSignup, isValidConfirmPassword, binding.confirmPasswordSignupError, getString(R.string.passwords_do_not_match))
-
-            }
-        }
-    }
-
-
-
-
-
     private fun signUpButtonSetUp(){
 
         binding.signup.setOnClickListener {
@@ -232,35 +205,9 @@ class SignUpFragment : Fragment() {
         }
     }
 
-    private fun decideIfToShowError(control: EditText, isValidControl: Boolean?, textView: TextView, error: String){
-        if(isValidControl == null){
-            showControlErrors(textView)
 
-        }
-        if(isValidControl == true){
-            hideControlErrors(textView)
-        }
-        if (isValidControl == false && control.text.toString().isBlank()) {
-            typeOfControlError(textView,getString(R.string.required))
-            showControlErrors(textView)
-        }
-        if (isValidControl == false && control.text.toString().isNotBlank()) {
-            typeOfControlError(textView,error)
-            showControlErrors(textView)
-        }
-    }
 
-    private fun showControlErrors(textView: TextView){
-        textView.visibility = View.VISIBLE
-    }
 
-    private fun hideControlErrors(textView: TextView){
-        textView.visibility = View.GONE
-    }
-
-    private fun typeOfControlError(textView: TextView, error: String){
-        textView.text = error
-    }
 
 
 }

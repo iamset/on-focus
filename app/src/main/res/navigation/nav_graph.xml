@@ -40,7 +40,7 @@
         tools:layout="@layout/fragment_focus_group_list" />
     <fragment
         android:id="@+id/createFocusGroupFragment"
-        android:name="com.focusg.focusgroup.presentation.focus_groups.CreateFocusGroupFragment"
+        android:name="com.focusg.focusgroup.presentation.focus_groups.create.CreateFocusGroupFragment"
         android:label="fragment_create_focus_group"
         tools:layout="@layout/fragment_create_focus_group" />
 </navigation>
