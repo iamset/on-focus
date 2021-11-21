@@ -12,8 +12,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import com.focusg.focusgroup.R
 import com.focusg.focusgroup.databinding.FragmentCreateFocusGroupBinding
+import com.focusg.focusgroup.domain.util.AuthFormControl
+import com.focusg.focusgroup.domain.util.CreateFormControl
 import com.focusg.focusgroup.presentation.auth.AuthValidationViewModel
 import com.focusg.focusgroup.presentation.focus_groups.FocusGroupValidationViewModel
+import com.focusg.focusgroup.presentation.util.decideIfToShowError
+import com.focusg.focusgroup.presentation.util.editTextHasFocus
 import com.focusg.focusgroup.presentation.util.hideControlErrors
 
 
@@ -35,6 +39,18 @@ class CreateFocusGroupFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
     }
+
+
+
+//    private fun controlsSetUp(editText: EditText, textView: TextView, type:String){
+//        editText.setOnFocusChangeListener { _, hasFocus ->
+//            editTextHasFocus(hasFocus, textView, type)
+//        }
+//        when(type){
+//            CreateFormControl.NAME.control -> nameSetUp(editText, textView)
+//
+//        }
+//    }
 
 
 

@@ -101,13 +101,16 @@ class SignUpFragment : Fragment() {
 
     }
 
-
-
-
-
     private fun controlsSetUp(editText: EditText, textView: TextView, type:String){
         editText.setOnFocusChangeListener { _, hasFocus ->
-            editTextHasFocus(hasFocus, textView, type)
+            editTextHasFocus(hasFocus, textView){
+                when(type){
+                    AuthFormControl.USERNAME.control -> decideIfToShowError(binding.usernameSignup, isValidUsername, binding.usernameSignupError, getString(R.string.username_should_be_within_5_20_characters_and_should_not_consists_of_special_characters_at_both_ends))
+                    AuthFormControl.EMAIL.control -> decideIfToShowError(binding.emailSignup, isValidEmail, binding.emailSignupError, getString(R.string.enter_a_valid_email))
+                    AuthFormControl.PASSWORD.control -> decideIfToShowError(binding.passwordSignup, isValidPassword, binding.passwordSignupError, getString(R.string.password_should_be_between_12_to_50_characters_and_contain_at_least_1_number_1_special_and_1_uppercase_character))
+                    AuthFormControl.CONFIRM_PASSWORD.control -> decideIfToShowError(binding.confirmPasswordSignup, isValidConfirmPassword, binding.confirmPasswordSignupError, getString(R.string.passwords_do_not_match))
+                }
+            }
         }
         when(type){
             AuthFormControl.USERNAME.control -> usernameSetUp(editText, textView, binding.usernameSignupError2)
@@ -174,26 +177,6 @@ class SignUpFragment : Fragment() {
             }
         }
     }
-
-
-
-    private fun editTextHasFocus(hasFocus: Boolean, textView: TextView, type: String){
-        if (hasFocus){
-            hideControlErrors(textView)
-        } else {
-            when(type){
-                AuthFormControl.USERNAME.control -> decideIfToShowError(binding.usernameSignup, isValidUsername, binding.usernameSignupError, getString(R.string.username_should_be_within_5_20_characters_and_should_not_consists_of_special_characters_at_both_ends))
-                AuthFormControl.EMAIL.control -> decideIfToShowError(binding.emailSignup, isValidEmail, binding.emailSignupError, getString(R.string.enter_a_valid_email))
-                AuthFormControl.PASSWORD.control -> decideIfToShowError(binding.passwordSignup, isValidPassword, binding.passwordSignupError, getString(R.string.password_should_be_between_12_to_50_characters_and_contain_at_least_1_number_1_special_and_1_uppercase_character))
-                AuthFormControl.CONFIRM_PASSWORD.control -> decideIfToShowError(binding.confirmPasswordSignup, isValidConfirmPassword, binding.confirmPasswordSignupError, getString(R.string.passwords_do_not_match))
-
-            }
-        }
-    }
-
-
-
-
 
     private fun signUpButtonSetUp(){
 
